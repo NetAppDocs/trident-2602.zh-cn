@@ -16,6 +16,7 @@ summary: 在安装 Trident 之前，您应该查看这些一般系统要求。�
 
 
 
+[[critical-information-about-trident]]
 == 有关 Trident 的重要信息
 
 *您必须阅读以下有关 Trident 的重要信息。*
@@ -36,6 +37,7 @@ summary: 在安装 Trident 之前，您应该查看这些一般系统要求。�
 ====
 
 
+[[supported-frontends-orchestrators]]
 == 支持的前端（编排器）
 
 Trident 支持多个容器引擎和编排器，其中包括：
@@ -59,6 +61,7 @@ WARNING: 在将安装了 Trident 的 Kubernetes 集群从 1.25 升级到 1.26 �
 
 
 
+[[supported-backends-storage]]
 == 支持的后端（存储）
 
 要使用 Trident，您需要以下一个或多个受支持的后端：
@@ -74,6 +77,7 @@ WARNING: 在将安装了 Trident 的 Kubernetes 集群从 1.25 升级到 1.26 �
 
 
 
+[[trident-support-for-kubevirt-and-openshift-virtualization]]
 == Trident 支持 KubeVirt 和 OpenShift Virtualization
 
 .支持的存储驱动程序：
@@ -99,6 +103,7 @@ Trident 支持以下用于 KubeVirt 和 OpenShift Virtualization 的 ONTAP 驱�
 
 
 
+[[feature-requirements]]
 == 功能要求
 
 下表总结了此版本 Trident 及其支持的 Kubernetes 版本的可用功能。
@@ -165,6 +170,7 @@ Trident 支持以下用于 KubeVirt 和 OpenShift Virtualization 的 ONTAP 驱�
 |===
 
 
+[[tested-host-operating-systems]]
 == 已测试的主机操作系统
 
 虽然 Trident 不正式支持特定的操作系统，但已知以下操作系统可以正常工作：
@@ -186,6 +192,7 @@ NOTE: NVMe/TCP 需要 RHEL 9 或更高版本。
 
 
 
+[[host-configuration]]
 == 主机配置
 
 Kubernetes 集群中的所有工作节点都必须能够装载您为 Pod 配置的卷。若要准备工作节点，必须根据您的驱动程序选择安装 NFS、iSCSI 或 NVMe 工具。
@@ -194,6 +201,7 @@ link:../trident-use/worker-node-prep.html["准备工作节点"]
 
 
 
+[[storage-system-configuration]]
 == 存储系统配置
 
 Trident 可能需要对存储系统进行更改，然后后端配置才能使用它。
@@ -202,6 +210,7 @@ link:../trident-use/backends.html["配置后端"]
 
 
 
+[[trident-ports]]
 == Trident 端口
 
 Trident 需要访问特定端口进行通信。
@@ -210,12 +219,14 @@ link:../trident-reference/ports.html["Trident 端口"]
 
 
 
+[[container-images-and-corresponding-kubernetes-versions]]
 == 容器映像和相应的 Kubernetes 版本
 
 对于气隙安装，以下列表是安装 Trident 所需的容器映像的参考。使用  `tridentctl images` 命令验证所需容器映像的列表。
 
 
 
+[[container-images-required-for-trident-26-02]]
 === Trident 26.02 所需的容器映像
 
 [cols="2"]

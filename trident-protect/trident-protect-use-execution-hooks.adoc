@@ -18,6 +18,7 @@ summary: 您可以使用 Trident Protect 为应用程序创建自定义执行挂
 
 
 
+[[types-of-execution-hooks]]
 == 执行挂钩的类型
 
 Trident Protect 支持以下类型的执行挂钩，具体取决于它们可以运行的时间：
@@ -32,6 +33,7 @@ Trident Protect 支持以下类型的执行挂钩，具体取决于它们可以�
 
 
 
+[[order-of-execution]]
 === 执行顺序
 
 运行数据保护操作时，执行挂钩事件按以下顺序发生：
@@ -62,6 +64,7 @@ NOTE: 如果快照前执行挂钩添加、更改或删除 Kubernetes 资源，�
 
 
 
+[[important-notes-about-custom-execution-hooks]]
 == 关于自定义执行挂钩的重要说明
 
 为应用规划执行挂钩时，请考虑以下内容。
@@ -77,6 +80,7 @@ NOTE: 由于执行挂钩通常会减少或完全禁用它们所运行的应用�
 
 
 
+[[execution-hook-filters]]
 == 执行挂钩筛选器
 
 在为应用程序添加或编辑执行挂钩时，可以向执行挂钩添加筛选器，以管理挂钩将匹配的容器。筛选器对于在所有容器上使用相同容器映像的应用程序非常有用，但可能会将每个映像用于不同的目的（例如 Elasticsearch）。筛选器允许您创建执行挂钩在某些但不一定所有相同的容器上运行的场景。如果为单个执行挂钩创建多个筛选器，它们将与逻辑 AND 运算符组合。每个执行挂钩最多可以有 10 个活动筛选器。
@@ -88,12 +92,14 @@ NOTE: 如果将命名空间筛选器添加到在还原或克隆操作后运行�
 
 
 
+[[execution-hook-examples]]
 == 执行挂钩示例
 
 访问 https://github.com/NetApp/Verda["NetApp Verda GitHub 项目"]以下载流行应用程序（如 Apache Cassandra 和 Elasticsearch）的实际执行挂钩。您还可以查看示例并获得构建自己的自定义执行挂钩的想法。
 
 
 
+[[create-an-execution-hook]]
 == 创建执行挂钩
 
 您可以使用 Trident Protect 为应用程序创建自定义执行挂钩。您需要拥有所有者、管理员或成员权限才能创建执行挂钩。
@@ -202,6 +208,7 @@ tridentctl-protect create exechook <my_exec_hook_name> --action <action_type> --
 ====
 
 
+[[manually-run-an-execution-hook]]
 == 手动运行执行挂钩
 
 您可以出于测试目的手动运行执行挂钩，也可以在出现故障后手动重新运行挂钩。您需要拥有所有者、管理员或成员权限才能手动运行执行挂钩。

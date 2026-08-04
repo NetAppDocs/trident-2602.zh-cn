@@ -16,6 +16,7 @@ summary: 在部署 Trident 之前，您必须在主机上安装和配置必要�
 
 
 
+[[verify-the-requirements]]
 == 验证要求
 
 * 验证您的部署是否符合所有 link:../trident-get-started/requirements.html["要求"]。
@@ -30,6 +31,7 @@ docker --version
 
 
 
+[[nfs-tools]]
 === NFS 工具
 
 使用操作系统的命令安装 NFS 工具。
@@ -56,6 +58,7 @@ WARNING: 安装 NFS 工具后重新启动工作节点，以防止将卷附加到
 
 
 
+[[iscsi-tools]]
 === iSCSI 工具
 
 使用操作系统命令安装 iSCSI 工具。
@@ -158,6 +161,7 @@ sudo systemctl status open-iscsi
 ====
 
 
+[[nvme-tools]]
 == NVMe 工具
 
 使用操作系统命令安装 NVMe 工具。
@@ -192,6 +196,7 @@ sudo modprobe nvme-tcp
 ====
 
 
+[[fc-tools]]
 == FC 工具
 
 使用操作系统的命令安装 FC 工具。

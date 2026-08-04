@@ -16,6 +16,7 @@ summary: 您可以手动部署 Trident 操作员来安装 Trident。此过程适
 
 
 
+[[critical-information-about-trident-26-02]]
 == 有关 Trident 26.02 的关键信息
 
 *您必须阅读以下有关 Trident 的重要信息。*
@@ -36,12 +37,13 @@ summary: 您可以手动部署 Trident 操作员来安装 Trident。此过程适
 ====
 
 
+[[manually-deploy-the-trident-operator-and-install-trident]]
 == 手动部署 Trident 操作员并安装 Trident
 
 请检查 link:kubernetes-deploy.html["安装概述"] 以确保您已满足安装先决条件，并为您的环境选择了正确的安装选项。
 
 .开始之前
-在开始安装之前，请登录到 Linux 主机并验证其是否正在管理工作，link:requirements.html["支持的 Kubernetes 集群"^]以及您是否具有必要的权限。
+在开始安装之前，请登录到 Linux 主机并验证其是否正在管理工作，link:../trident-get-started/requirements.html["支持的 Kubernetes 集群"]以及您是否具有必要的权限。
 
 
 NOTE: 使用 OpenShift 时，在后面的所有示例中使用 `oc`而不是 `kubectl`，并首先通过运行 `oc login -u system:admin`或 `oc login -u kube-admin`以 *system:admin* 身份登录。
@@ -72,6 +74,7 @@ kubectl run -i --tty ping --image=busybox --restart=Never --rm -- \
 ====
 
 
+[[step-1-download-the-trident-installer-package]]
 === 步骤 1：下载 Trident 安装程序包
 
 Trident 安装程序包包含部署 Trident 操作员和安装 Trident 所需的一切。从 link:https://github.com/NetApp/trident/releases/latest["GitHub 上的 _Assets_ 部分"^] 下载并提取最新版本的 Trident 安装程序。
@@ -84,6 +87,7 @@ cd trident-installer
 ----
 
 
+[[step-2-create-the-tridentorchestrator-crd]]
 === 步骤 2：创建  `TridentOrchestrator` CRD
 
 创建 `TridentOrchestrator` Custom Resource Definition (CRD)。您稍后将创建 `TridentOrchestrator` Custom Resource。在 `deploy/crds`中使用适当的 CRD YAML 版本来创建 `TridentOrchestrator` CRD。
@@ -94,6 +98,7 @@ kubectl create -f deploy/crds/trident.netapp.io_tridentorchestrators_crd_post1.1
 ----
 
 
+[[step-3-deploy-the-trident-operator]]
 === 步骤 3：部署 Trident 操作员
 
 Trident 安装程序提供了一个捆绑文件，可用于安装操作员和创建相关对象。捆绑文件是使用默认配置部署操作员和安装 Trident 的简便方法。
@@ -147,6 +152,7 @@ IMPORTANT: Kubernetes 集群中应该只有*一个实例*的运算符。请勿�
 
 
 
+[[step-4-create-the-tridentorchestrator-and-install-trident]]
 === 步骤 4：创建 `TridentOrchestrator`并安装 Trident
 
 现在，您可以创建 `TridentOrchestrator`并安装 Trident。或者，您可以link:kubernetes-customize-deploy.html["定制您的 Trident 安装"]使用 `TridentOrchestrator`规范中的属性。
@@ -195,12 +201,14 @@ Events:
 ----
 
 
+[[verify-the-installation]]
 == 验证安装
 
 有几种方法可以验证您的安装。
 
 
 
+[[using-tridentorchestrator-status]]
 === 使用  `TridentOrchestrator` 状态
 
  `TridentOrchestrator`的状态指示安装是否成功，并显示已安装的 Trident 版本。在安装过程中， `TridentOrchestrator`的状态从 `Installing`更改为 `Installed`。如果您观察到 `Failed`状态，并且操作员无法自行恢复，link:../troubleshooting.html["检查日志"]。
@@ -233,6 +241,7 @@ Events:
 |===
 
 
+[[using-pod-creation-status]]
 === 使用 pod 创建状态
 
 您可以通过查看已创建的 Pod 的状态来确认 Trident 安装是否已完成：
@@ -250,6 +259,7 @@ trident-operator-766f7b8658-ldzsv          1/1     Running   0           3m
 ----
 
 
+[[using-tridentctl]]
 === 使用 `tridentctl`
 
 您可以使用 `tridentctl`检查已安装的 Trident 版本。

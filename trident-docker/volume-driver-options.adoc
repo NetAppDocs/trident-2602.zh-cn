@@ -18,6 +18,7 @@ summary: 每个存储驱动程序都有一组不同的选项，您可以在卷�
 
 
 
+[[ontap-volume-options]]
 == ONTAP 卷选项
 
 NFS、iSCSI 和 FC 的卷创建选项包括：
@@ -105,6 +106,7 @@ NFS、iSCSI 和 FC 的卷创建选项包括：
 |===
 
 
+[[examples]]
 === 示例
 
 请参见以下示例：
@@ -161,6 +163,7 @@ docker volume create -d netapp --name my_vol --opt snapshotPolicy=myPolicy
 
 
 
+[[element-software-volume-options]]
 == Element 软件卷选项
 
 Element 软件选项显示与卷关联的大小和服务质量 (QoS) 策略。创建卷时，与其关联的 QoS 策略使用 `-o type=service_level`命名法指定。
@@ -185,6 +188,7 @@ Element 软件选项显示与卷关联的大小和服务质量 (QoS) 策略。�
 |===
 
 
+[[example]]
 === 示例
 
 请参见以下具有 QoS 定义的配置文件示例：

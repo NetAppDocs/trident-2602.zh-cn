@@ -16,6 +16,7 @@ summary: 查看适用于您的 Trident 配置的配置选项。
 
 
 
+[[global-configuration-options]]
 == 全局配置选项
 
 这些配置选项适用于所有 Trident 配置，无论使用何种存储平台。
@@ -71,6 +72,7 @@ TIP: 不要对 Element 后端使用 `storagePrefix`（包括默认值）。默�
 |===
 
 
+[[ontap-configuration]]
 == ONTAP 配置
 
 除了上述全局配置值之外，使用 ONTAP 时，还可以使用以下顶级选项。
@@ -276,6 +278,7 @@ NFS 支持 `mixed`和 `unix`安全样式。默认值为  `unix`。
 |===
 
 
+[[scaling-options]]
 === 扩展选项
 
  `ontap-nas` 和  `ontap-san` 驱动程序为每个 Docker 卷创建一个 ONTAP FlexVol。ONTAP 每个集群节点最多支持 1000 个 FlexVols，集群最大容量为 12,000 个 FlexVol 卷。如果您的 Docker 卷要求符合该限制，则  `ontap-nas` 驱动程序是首选的 NAS 解决方案，因为 FlexVols 提供了额外的功能，例如 Docker 卷粒度快照和克隆。
@@ -304,6 +307,7 @@ NOTE: Docker Swarm 当前不支持该 `ontap-nas-economy`驱动程序，因为 D
 
 
 
+[[custom-ontap-role-for-trident]]
 === Trident 的自定义 ONTAP 角色
 
 您可以使用最低权限创建 ONTAP 集群角色，这样您就不必使用 ONTAP 管理员角色在 Trident 中执行操作。在 Trident 后端配置中包含用户名时，Trident 使用您创建的 ONTAP 集群角色来执行操作。
@@ -364,6 +368,7 @@ NOTE: Docker Swarm 当前不支持该 `ontap-nas-economy`驱动程序，因为 D
 
 
 
+[[example-ontap-configuration-files]]
 === ONTAP 配置文件示例
 
 .ONTAP-nas<code> 驱动程序的 NFS</code> 示例
@@ -500,6 +505,7 @@ NOTE: Docker Swarm 当前不支持该 `ontap-nas-economy`驱动程序，因为 D
 ====
 
 
+[[element-software-configuration]]
 == Element 软件配置
 
 除了全局配置值之外，使用 Element 软件（NetApp HCI/SolidFire）时，还可以使用这些选项。
@@ -554,6 +560,7 @@ QoS 规范
 
 
 
+[[example-element-software-configuration-file]]
 === 示例 Element 软件配置文件
 
 [source, json]

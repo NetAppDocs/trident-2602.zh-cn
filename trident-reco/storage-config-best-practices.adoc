@@ -16,6 +16,7 @@ NetApp 产品组合中的每个存储平台都具有独特的功能，使应用�
 
 
 
+[[platform-overview]]
 == 平台概述
 
 Trident 与 ONTAP 和 Element 配合使用。没有一个平台比另一个平台更适合所有应用程序和场景，但是，在选择平台时应考虑应用程序和管理设备的团队的需求。
@@ -24,6 +25,7 @@ Trident 与 ONTAP 和 Element 配合使用。没有一个平台比另一个平�
 
 
 
+[[ontap-and-cloud-volumes-ontap-best-practices]]
 == ONTAP 和 Cloud Volumes ONTAP 最佳实践
 
 了解为 Trident 配置 ONTAP 和 Cloud Volumes ONTAP 的最佳实践。
@@ -32,6 +34,7 @@ Trident 与 ONTAP 和 Element 配合使用。没有一个平台比另一个平�
 
 
 
+[[use-svms-dedicated-to-trident]]
 === 使用专用于 Trident 的 SVM
 
 Storage Virtual Machine （ SVM ）在 ONTAP 系统上的租户之间提供隔离和管理隔离。将 SVM 专用于应用程序可以实现权限委派，并能够应用限制资源消耗的最佳实践。
@@ -49,6 +52,7 @@ Storage Virtual Machine （ SVM ）在 ONTAP 系统上的租户之间提供隔�
 
 
 
+[[limit-the-maximum-volume-count]]
 === 限制最大卷计数
 
 ONTAP 存储系统具有最大卷计数，该计数因软件版本和硬件平台而异。请参阅 https://hwu.netapp.com/["NetApp Hardware Universe"^]以确定您的特定平台和 ONTAP 版本的确切限制。当卷计数耗尽时，不仅 Trident 的配置操作会失败，所有存储请求的配置操作都会失败。
@@ -72,6 +76,7 @@ vserver modify -vserver <svm_name> -max-volumes <num_of_volumes>
 
 
 
+[[clone-a-volume]]
 === 克隆卷
 
 NetApp Trident 在使用  `ontap-nas`、 `ontap-san` 和  `solidfire-san` 存储驱动程序时支持克隆卷。使用  `ontap-nas-flexgroup` 或  `ontap-nas-economy` 驱动程序时，不支持克隆。从现有卷创建新卷将导致创建新的快照。
@@ -81,6 +86,7 @@ WARNING: 避免克隆与不同 StorageClass 关联的 PVC。在相同的 Storage
 
 
 
+[[limit-the-maximum-size-of-volumes-created-by-trident]]
 === 限制 Trident 创建的卷的最大大小
 
 要配置 Trident 可创建的卷的最大大小，请在您的 `limitVolumeSize`定义中使用 `backend.json`参数。
@@ -89,18 +95,21 @@ WARNING: 避免克隆与不同 StorageClass 关联的 PVC。在相同的 Storage
 
 
 
+[[limit-the-maximum-size-of-flexvols-created-by-trident]]
 === 限制 Trident 创建的 FlexVols 的最大大小
 
 要为 ontap-san-economy 和 ontap-nas-economy 驱动程序用作池的 FlexVols 配置最大大小，请在 `limitVolumePoolSize` 参数中，在 `backend.json` 定义中使用。
 
 
 
+[[configure-trident-to-use-bidirectional-chap]]
 === 配置 Trident 使用双向 CHAP
 
 您可以在后端定义中指定 CHAP 启动程序和目标用户名和密码，并让 Trident 在 SVM 上启用 CHAP。使用后端配置中的 `useCHAP`参数，Trident 使用 CHAP 对 ONTAP 后端的 iSCSI 连接进行身份验证。
 
 
 
+[[create-and-use-an-svm-qos-policy]]
 === 创建和使用 SVM QoS 策略
 
 利用应用于 SVM 的 ONTAP QoS 策略，可限制 Trident 配置卷可消耗的 IOPS 数量。这有助于 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-perf-mon/GUID-77DF9BAF-4ED7-43F6-AECE-95DFB0680D2F.html?cp=7_1_2_1_2["防止霸凌"^]或失控容器影响 Trident SVM 外部的工作负载。
@@ -131,6 +140,7 @@ IMPORTANT: 仅当您的 ONTAP 版本早于 9.8 时，才应将 QoS 策略组分�
 
 
 
+[[create-qos-policy-groups-for-trident]]
 === 为 Trident 创建 QoS 策略组
 
 服务质量 (QoS) 保证关键工作负载的性能不会因竞争工作负载而降低。ONTAP QoS 策略组为卷提供 QoS 选项，并使用户能够为一个或多个工作负载定义吞吐量上限。有关 QoS 的详细信息，请参阅 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-perf-mon/GUID-77DF9BAF-4ED7-43F6-AECE-95DFB0680D2F.html["通过 QoS 保证吞吐量"^]。您可以在后端或存储池中指定 QoS 策略组，并将其应用于在该池或后端中创建的每个卷。
@@ -172,6 +182,7 @@ storage:
 
 
 
+[[limit-storage-resource-access-to-kubernetes-cluster-members]]
 === 限制存储资源访问 Kubernetes 集群成员
 
 限制对 Trident 创建的 NFS 卷、iSCSI LUN 和 FC LUN 的访问是 Kubernetes 部署安全态势的关键组成部分。这样做可以防止不属于 Kubernetes 集群的主机访问卷，并可能意外修改数据。
@@ -188,6 +199,7 @@ storage:
 
 
 
+[[use-a-dedicated-export-policy]]
 === 使用专用导出策略
 
 您应该确保每个后端都存在一个导出策略，该策略仅允许访问 Kubernetes 集群中存在的节点。Trident 可以自动创建和管理导出策略。通过这种方式，Trident 将其配置的卷的访问限制为 Kubernetes 集群中的节点，并简化了节点的添加/删除。
@@ -202,6 +214,7 @@ storage:
 
 
 
+[[disable-showmount-for-the-application-svm]]
 === 为应用程序 SVM 禁用 `showmount`
 
 该 `showmount`功能使 NFS 客户端能够查询 SVM 以获取可用 NFS 导出的列表。部署到 Kubernetes 集群的 pod 可以对发出 `showmount -e`命令，并接收可用挂载的列表，包括它无权访问的挂载。虽然这本身并不是安全威胁，但它确实提供了不必要的信息，可能会帮助未经授权的用户连接到 NFS 导出。
@@ -214,18 +227,21 @@ vserver nfs modify -vserver <svm_name> -showmount disabled
 ----
 
 
+[[solidfire-best-practices]]
 == SolidFire 最佳实践
 
 了解为 Trident 配置 SolidFire 存储的最佳实践。
 
 
 
+[[create-solidfire-account]]
 === 创建 SolidFire 账户
 
 每个 SolidFire 帐户代表一个唯一的卷所有者，并接收其自己的一组 Challenge-Handshake Authentication Protocol (CHAP) 凭据。您可以使用帐户名和相关 CHAP 凭据或通过卷访问组访问分配给帐户的卷。一个帐户最多可以分配两千个卷，但一个卷只能属于一个帐户。
 
 
 
+[[create-a-qos-policy]]
 === 创建 QoS 策略
 
 如果要创建和保存可应用于多个卷的标准化服务质量设置，请使用 SolidFire 服务质量 (QoS) 策略。
@@ -278,6 +294,7 @@ NOTE: 虽然最大 IOPS 和突发 IOPS 可以设置为高达 200,000，但卷的
 
 
 
+[[solidfire-authentication]]
 === SolidFire 身份验证
 
 Element 支持两种身份验证方法：CHAP 和卷访问组 (VAG)。CHAP 使用 CHAP 协议向后端验证主机。卷访问组控制对其设置的卷的访问。NetApp 建议使用 CHAP 进行身份验证，因为它更简单且没有扩展限制。
@@ -291,6 +308,7 @@ NOTE: 具有增强 CSI 配置程序的 Trident 支持使用 CHAP 身份验证。
 
 
 
+[[where-to-find-more-information]]
 == 在哪里可以找到更多信息？
 
 下面列出了一些最佳实践文档。搜索 https://www.netapp.com/search/["NetApp 库"^]以查找最新版本。

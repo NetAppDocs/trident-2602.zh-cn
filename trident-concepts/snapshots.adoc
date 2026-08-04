@@ -16,6 +16,7 @@ summary: 详细了解 Trident 如何为其驱动程序创建卷快照。
 
 
 
+[[learn-about-volume-snapshot-creation]]
 == 了解卷快照创建
 
 * 对于 `ontap-nas`、 `ontap-san`和 `azure-netapp-files`驱动程序，每个永久卷 (PV) 映射到一个 FlexVol 卷。因此，卷快照将创建为 NetApp 快照。NetApp 快照技术与竞争对手的快照技术相比，提供了更高的稳定性、可扩展性、可恢复性和性能。这些快照副本在创建所需的时间和存储空间方面都非常高效。

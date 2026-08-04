@@ -16,6 +16,7 @@ summary: 您可以使用 Helm 部署 Trident 操作员并安装 Trident。此过
 
 
 
+[[critical-information-about-trident-25-10]]
 == 有关 Trident 25.10 的关键信息
 
 *您必须阅读以下有关 Trident 的重要信息。*
@@ -36,6 +37,7 @@ summary: 您可以使用 Helm 部署 Trident 操作员并安装 Trident。此过
 ====
 
 
+[[deploy-the-trident-operator-and-install-trident-using-helm]]
 == 部署 Trident 操作员并使用 Helm 安装 Trident
 
 使用 Trident link:https://artifacthub.io/packages/helm/netapp-trident/trident-operator["Helm Chart"^] 您可以部署 Trident 操作员并一步安装 Trident。
@@ -68,6 +70,7 @@ NOTE: 如果您已经为 Trident 创建了命名空间，则  `--create-namespac
 
 
 
+[[pass-configuration-data-during-install]]
 == 在安装过程中传递配置数据
 
 在安装过程中，有两种传递配置数据的方法：
@@ -94,6 +97,7 @@ helm install <name> netapp-trident/trident-operator --version 100.2602.0  --crea
 ----
 
 
+[[configuration-options]]
 == 配置选项
 
 此表和作为 Helm 图表一部分的 `values.yaml`文件提供了键及其默认值的列表。
@@ -380,6 +384,7 @@ resources:
 |===
 
 
+[[understanding-controller-pods-and-node-pods]]
 === 了解控制器 pod 和节点 pod
 
 Trident 作为单个控制器 pod 运行，并在集群中的每个工作节点上加上一个节点 pod。节点 pod 必须运行在任何可能要装载 Trident 卷的主机上。

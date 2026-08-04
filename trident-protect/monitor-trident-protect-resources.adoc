@@ -31,12 +31,14 @@ Alertmanager 是一项服务，可接收 Prometheus 等工具发送的警报，�
 ====
 
 
+[[step-1-install-the-monitoring-tools]]
 == 步骤 1：安装监控工具
 
 要在 Trident Protect 中启用资源监控，需要安装和配置 kube-state-metrics、Prometheus 和 Alertmanager。
 
 
 
+[[install-kube-state-metrics]]
 === 安装 kube-state-metrics
 
 您可以使用 Helm 安装 kube-state-metrics。
@@ -113,18 +115,21 @@ helm install custom-resource -f metrics-config.yaml prometheus-community/kube-st
 
 
 
+[[install-prometheus]]
 === 安装 Prometheus
 
 您可以按照 https://prometheus.io/docs/prometheus/latest/installation/["Prometheus 文档"^]中的说明安装 Prometheus。
 
 
 
+[[install-alertmanager]]
 === 安装 Alertmanager
 
 您可以按照 https://github.com/prometheus/alertmanager?tab=readme-ov-file#install["Alertmanager 文档"^]中的说明安装 Alertmanager。
 
 
 
+[[step-2-configure-the-monitoring-tools-to-work-together]]
 == 步骤 2：配置监控工具以协同工作
 
 安装监控工具后，需要将其配置为协同工作。
@@ -168,12 +173,14 @@ Prometheus 现在可以从 kube-state-metrics 收集指标，并向 Alertmanager
 
 
 
+[[step-3-configure-alerts-and-alert-destinations]]
 == 步骤 3：配置警报和警报目标
 
 将工具配置为协同工作后，需要配置触发警报的信息类型以及应将警报发送到何处。
 
 
 
+[[alert-example-backup-failure]]
 === 警报示例：备份失败
 
 以下示例定义了在备份自定义资源的状态设置为 `Error` 5 秒或更长时间时触发的关键警报。您可以自定义此示例以匹配您的环境，并在 `prometheus.yaml`配置文件中包含此 YAML 代码段：
@@ -196,6 +203,7 @@ rules.yaml: |
 ----
 
 
+[[configure-alertmanager-to-send-alerts-to-other-channels]]
 === 配置 Alertmanager 以向其他渠道发送警报
 
 您可以通过在  `alertmanager.yaml` 文件中指定相应的配置，将 Alertmanager 配置为向其他渠道（如电子邮件、PagerDuty、Microsoft Teams 或其他通知服务）发送通知。

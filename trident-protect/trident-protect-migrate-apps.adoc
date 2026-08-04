@@ -21,12 +21,14 @@ NOTE: 迁移应用程序时，为应用程序配置的所有执行挂钩都会�
 
 
 
+[[backup-and-restore-operations]]
 == 备份和还原操作
 
 要为以下方案执行备份和还原操作，可以自动执行特定的备份和还原任务。
 
 
 
+[[clone-to-same-cluster]]
 === 克隆到同一集群
 
 要将应用程序克隆到同一集群，请创建快照或备份并将数据恢复到同一集群。
@@ -48,6 +50,7 @@ NOTE: 迁移应用程序时，为应用程序配置的所有执行挂钩都会�
 
 
 
+[[clone-to-different-cluster]]
 === 克隆到不同的集群
 
 若要将应用程序克隆到其他群集（执行跨群集克隆），请在源群集上创建备份，然后将备份还原到其他群集。确保已在目标集群上安装 Trident Protect。
@@ -63,6 +66,7 @@ NOTE: 您可以使用 link:trident-protect-use-snapmirror-replication.html["Snap
 
 
 
+[[migrate-applications-from-one-storage-class-to-another-storage-class]]
 == 将应用程序从一个存储类迁移到另一个存储类
 
 您可以通过将备份还原到目标存储类，将应用程序从一个存储类迁移到其他存储类。

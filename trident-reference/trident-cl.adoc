@@ -16,6 +16,7 @@ Trident 为 Trident orchestrator 提供了多个命令行选项。您可以使�
 
 
 
+[[logging]]
 == 日志记录
 
 `-debug`:: 启用调试输出。
@@ -24,6 +25,7 @@ Trident 为 Trident orchestrator 提供了多个命令行选项。您可以使�
 
 
 
+[[kubernetes]]
 == Kubernetes
 
 `-k8s_pod`:: 使用此选项或  `-k8s_api_server` 来启用 Kubernetes 支持。设置此选项会导致 Trident 使用其包含的 pod 的 Kubernetes 服务帐户凭据来联系 API 服务器。仅当 Trident 在启用了服务帐户的 Kubernetes 集群中作为 pod 运行时，此功能才有效。
@@ -32,6 +34,7 @@ Trident 为 Trident orchestrator 提供了多个命令行选项。您可以使�
 
 
 
+[[docker]]
 == Docker
 
 `-volume_driver <name>`:: 注册 Docker 插件时使用的驱动程序名称。默认为  `netapp`。
@@ -41,6 +44,7 @@ Trident 为 Trident orchestrator 提供了多个命令行选项。您可以使�
 
 
 
+[[rest]]
 == REST
 
 `-address <ip-or-host>`:: 指定 Trident 的 REST 服务器应侦听的地址。默认为 localhost。在 localhost 上监听并在 Kubernetes pod 内运行时，无法从 pod 外部直接访问 REST 接口。使用 `-address ""`使 REST 接口可从 pod IP 地址访问。

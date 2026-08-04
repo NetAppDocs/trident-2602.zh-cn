@@ -18,6 +18,7 @@ summary: 您可以使用 protectctl 命令创建 Trident Protect 自定义资源
 
 
 
+[[install-the-trident-protect-cli-plugin]]
 == 安装 Trident Protect CLI 插件
 
 在使用命令行实用程序之前，需要将其安装在用于访问群集的计算机上。根据您的计算机使用的是 x64 还是 ARM CPU，请执行以下步骤。
@@ -98,6 +99,7 @@ NOTE: 将插件复制到 PATH 变量中的某个位置，可以通过键入 `tri
 
 
 
+[[view-trident-cli-plugin-help]]
 == 查看 Trident CLI 插件帮助
 
 您可以使用内置插件帮助功能获取有关插件功能的详细帮助：
@@ -113,6 +115,7 @@ tridentctl-protect help
 
 
 
+[[enable-command-auto-completion]]
 == 启用命令自动完成
 
 安装 Trident Protect CLI 插件后，可以启用某些命令的自动完成功能。

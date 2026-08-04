@@ -16,6 +16,7 @@ summary: '后端定义 Trident 与存储系统之间的关系。它告诉 Triden
 
 
 
+[[tridentbackendconfig]]
 == `TridentBackendConfig`
 
 `TridentBackendConfig` (`tbc`, `tbconfig`, `tbackendconfig`) 是一个前端、命名空间的 CRD，使您能够使用  `kubectl` 管理 Trident 后端。Kubernetes 和存储管理员现在可以直接通过 Kubernetes CLI 创建和管理后端，而无需专用的命令行实用程序 (`tridentctl`)。
@@ -72,6 +73,7 @@ TIP: 使用 `tridentctl`创建的后端没有关联的 `TridentBackendConfig`对
 
 
 
+[[steps-overview]]
 == 步骤概述
 
 要使用  `kubectl` 创建新的后端，应执行以下操作：
@@ -84,6 +86,7 @@ TIP: 使用 `tridentctl`创建的后端没有关联的 `TridentBackendConfig`对
 
 
 
+[[step-1-create-a-kubernetes-secret]]
 == 步骤 1：创建 Kubernetes Secret
 
 创建一个包含后端访问凭据的 Secret。这对于每个存储服务/平台都是独一无二的。下面是一个示例：
@@ -176,6 +179,7 @@ CHAP 目标发起者密钥。如果 useCHAP=true，则为必需。对于 `ontap-
 
 
 
+[[step-2-create-the-tridentbackendconfig-cr]]
 == 步骤 2：创建  `TridentBackendConfig` CR
 
 您现在可以创建 `TridentBackendConfig` CR 了。在此示例中，使用 `ontap-san`驱动程序的后端是通过使用以下所示的 `TridentBackendConfig`对象创建的：
@@ -202,6 +206,7 @@ spec:
 ----
 
 
+[[step-3-verify-the-status-of-the-tridentbackendconfig-cr]]
 == 第 3 步：验证  `TridentBackendConfig` CR 的状态
 
 现在已创建  `TridentBackendConfig` CR，您可以验证状态。请参见以下示例：
@@ -232,6 +237,7 @@ Phase 可以采用以下其中一个值：
 
 
 
+[[optional-step-4-get-more-details]]
 == (可选) 步骤 4：获取更多详细信息
 
 您可以运行以下命令来获取有关后端的详细信息：

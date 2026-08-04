@@ -16,6 +16,7 @@ summary: 您可以使用 Helm 部署 Trident 操作员并安装 Trident。此过
 
 
 
+[[critical-information-about-trident-26-02]]
 == 有关 Trident 26.02 的关键信息
 
 *您必须阅读以下有关 Trident 的重要信息。*
@@ -36,6 +37,7 @@ summary: 您可以使用 Helm 部署 Trident 操作员并安装 Trident。此过
 ====
 
 
+[[deploy-the-trident-operator-and-install-trident-using-helm]]
 == 部署 Trident 操作员并使用 Helm 安装 Trident
 
 使用 Trident link:https://artifacthub.io/packages/helm/netapp-trident/trident-operator["Helm Chart"^] 您可以部署 Trident 操作员并一步安装 Trident。
@@ -84,6 +86,7 @@ NOTE: 如果您已经为 Trident 创建了命名空间，则  `--create-namespac
 
 
 
+[[pass-configuration-data-during-install]]
 == 在安装过程中传递配置数据
 
 在安装过程中，有两种传递配置数据的方法：
@@ -116,6 +119,7 @@ helm install <name> netapp-trident/trident-operator --version 100.2602.0  --crea
 ----
 
 
+[[configuration-options]]
 == 配置选项
 
 此表和作为 Helm 图表一部分的 `values.yaml`文件提供了键及其默认值的列表。

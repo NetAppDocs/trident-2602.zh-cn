@@ -16,6 +16,7 @@ summary: '您可以使用 Trident 操作员（手动或使用 Helm）或使用 `
 
 
 
+[[critical-information-about-trident-26-02]]
 == 有关 Trident 26.02 的关键信息
 
 *您必须阅读以下有关 Trident 的重要信息。*
@@ -36,11 +37,12 @@ summary: '您可以使用 Trident 操作员（手动或使用 Helm）或使用 `
 ====
 
 
+[[before-you-begin]]
 == 开始之前
 
 无论安装路径如何，您必须具有：
 
-* 运行受支持的 Kubernetes 版本的受支持的 Kubernetes 集群的完整权限，并启用了功能要求。查看 link:requirements.html["要求"] 了解详情。
+* 运行受支持的 Kubernetes 版本的受支持的 Kubernetes 集群的完整权限，并启用了功能要求。查看 link:../trident-get-started/requirements.html["要求"] 了解详情。
 * 访问受支持的 NetApp 存储系统。
 * 能够从所有 Kubernetes 工作节点挂载卷。
 * 安装并配置了 `kubectl`（或 `oc`，如果您使用的是 OpenShift）来管理您要使用的 Kubernetes 集群的 Linux 主机。
@@ -54,12 +56,14 @@ TIP: 如果您还没有熟悉 link:../trident-get-started/intro.html["基本概�
 
 
 
+[[choose-your-installation-method]]
 == 选择您的安装方法
 
 选择适合您的安装方法。您还应该在做出决定之前查看 link:kubernetes-deploy.html#moving-between-installation-methods["在方法之间移动"] 的注意事项。
 
 
 
+[[using-the-trident-operator]]
 === 使用 Trident 操作员
 
 无论是手动部署还是使用 Helm，Trident 操作员都是简化安装和动态管理 Trident 资源的好方法。您甚至可以link:kubernetes-customize-deploy.html["自定义您的 Trident 操作员部署"]使用 `TridentOrchestrator`自定义资源 (CR) 中的属性。
@@ -121,6 +125,7 @@ NOTE: 如果集群升级到不受支持的版本，操作员将阻止安装 Trid
 ====
 
 
+[[using-tridentctl]]
 === 使用 `tridentctl`
 
 如果您现有的部署必须升级，或者您希望高度自定义部署，则应考虑 。这是部署 Trident 的常规方法。
@@ -132,6 +137,7 @@ NOTE: 从 22.04 版本开始，AES 密钥将不再在每次安装 Trident 时重
 
 
 
+[[choose-your-installation-mode]]
 == 选择安装模式
 
 根据您的组织所需的_安装模式_（标准、离线或远程）确定部署流程。
@@ -171,6 +177,7 @@ NOTE: 无论您的注册表配置如何，CSI 映像都必须驻留在一个注�
 ====
 
 
+[[select-the-process-based-on-your-method-and-mode]]
 == 根据您的方法和模式选择流程
 
 做出决定后，请选择适当的流程。
@@ -200,6 +207,7 @@ link:kubernetes-deploy-tridentctl.html["标准或脱机安装"]
 |===
 
 
+[[moving-between-installation-methods]]
 == 在安装方法之间切换
 
 您可以决定更改安装方法。在执行此操作之前，请考虑以下事项：
@@ -212,6 +220,7 @@ link:kubernetes-deploy-tridentctl.html["标准或脱机安装"]
 
 
 
+[[other-known-configuration-options]]
 == 其他已知配置选项
 
 在 VMware Tanzu Portfolio 产品上安装 Trident 时：

@@ -16,6 +16,7 @@ NetApp Trident 简化了 Kubernetes 中 Amazon FSx for NetApp ONTAP 存储管理
 
 
 
+[[prerequisites]]
 == 前提条件
 
 在为 AWS EKS 配置 Trident 加载项之前，请确保具备以下条件：
@@ -32,6 +33,7 @@ NetApp Trident 简化了 Kubernetes 中 Amazon FSx for NetApp ONTAP 存储管理
 
 
 
+[[steps]]
 == 步骤
 
 . 请确保创建 IAM 角色和 AWS 密钥，以使 EKS Pod 能够访问 AWS 资源。有关说明，请参阅 link:../trident-use/trident-fsx-iam-role.html["创建 IAM 角色和 AWS Secret"^]。
@@ -69,6 +71,7 @@ kubectl get pods -n trident
 
 
 
+[[installuninstall-the-trident-eks-add-on-using-cli]]
 == 使用 CLI 安装/卸载 Trident EKS 附加组件
 
 .使用 CLI 安装 NetApp Trident EKS 附加组件：

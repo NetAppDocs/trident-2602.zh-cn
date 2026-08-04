@@ -23,12 +23,14 @@ NOTE: 确保 AppVault CR 位于安装 Trident Protect 的集群上。如果 AppV
 
 
 
+[[configure-appvault-authentication-and-passwords]]
 == 配置 AppVault 身份验证和密码
 
 在创建 AppVault CR 之前，请确保您选择的 AppVault 和数据移动器可以通过提供商和任何相关资源进行身份验证。
 
 
 
+[[data-mover-repository-passwords]]
 === Data Mover 存储库密码
 
 当您使用 CR 或 Trident Protect CLI 插件创建 AppVault 对象时，您可以为 Restic 和 Kopia 加密指定带有自定义密码的 Kubernetes secret。如果您未指定 secret，Trident Protect 将使用默认密码。
@@ -81,6 +83,7 @@ kubectl create secret generic my-optional-data-mover-secret \
 ====
 
 
+[[s3-compatible-storage-iam-permissions]]
 === S3 兼容存储 IAM 权限
 
 当您使用 Trident Protect 访问 S3 兼容存储（如 Amazon S3、Generic S3 https://docs.netapp.com/us-en/storagegrid/s3/index.html["StorageGrid S3"^]或 https://docs.netapp.com/us-en/ontap/s3-config/["ONTAP S3"^]）时，您需要确保提供的用户凭据具有访问存储桶所需的权限。以下是授予使用 Trident Protect 访问所需的最低权限的策略示例。您可以将此策略应用于管理 S3 兼容存储桶策略的用户。
@@ -107,6 +110,7 @@ kubectl create secret generic my-optional-data-mover-secret \
 
 
 
+[[eks-pod-identity-for-amazon-s3-aws-authentication]]
 === EKS Pod Identity for Amazon S3 (AWS) 身份验证
 
 Trident Protect 支持用于 Kopia 数据移动器操作的 EKS Pod Identity。此功能可实现对 S3 存储桶的安全访问，而无需将 AWS 凭据存储在 Kubernetes 密钥中。
@@ -148,6 +152,7 @@ spec:
 ----
 
 
+[[appvault-key-generation-examples-for-cloud-providers]]
 === 针对云提供商的 AppVault 密钥生成示例
 
 定义 AppVault CR 时，需要包括访问提供程序托管的资源的凭据，除非您正在使用 IAM 身份验证。您为凭据生成密钥的方式将根据提供程序而有所不同。以下是多个提供程序的命令行密钥生成示例。您可以使用以下示例为每个云提供商的凭据创建密钥。
@@ -215,12 +220,14 @@ kubectl create secret generic <secret-name> \
 ====
 
 
+[[appvault-creation-examples]]
 == AppVault 创建示例
 
 下面是每个提供程序的示例 AppVault 定义。
 
 
 
+[[appvault-cr-examples]]
 === AppVault CR 示例
 
 您可以使用以下 CR 示例为每个云提供商创建 AppVault 对象。
@@ -404,6 +411,7 @@ spec:
 ====
 
 
+[[appvault-creation-examples-using-the-trident-protect-cli]]
 === 使用 Trident Protect CLI 创建 AppVault 示例
 
 您可以使用以下 CLI 命令示例为每个提供程序创建 AppVault CR。
@@ -493,6 +501,7 @@ tridentctl-protect create vault StorageGridS3 <vault-name> \
 ====
 
 
+[[supported-providerconfig-s3-configuration-options]]
 === 支持的 `providerConfig.s3`配置选项
 
 有关 S3 提供程序配置选项，请参见下表：
@@ -518,6 +527,7 @@ tridentctl-protect create vault StorageGridS3 <vault-name> \
 |===
 
 
+[[view-appvault-information]]
 == 查看 AppVault 信息
 
 您可以使用 Trident Protect CLI 插件查看有关在集群上创建的 AppVault 对象的信息。
@@ -559,6 +569,7 @@ tridentctl-protect get appvaultcontent gcp-vault \
 
 
 
+[[remove-an-appvault]]
 == 移除 AppVault
 
 您可以随时删除 AppVault 对象。

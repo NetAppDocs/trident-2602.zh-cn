@@ -16,6 +16,7 @@ summary: 了解如何在 Trident 安装中创建和使用 Element 后端。
 
 
 
+[[element-driver-details]]
 == Element 驱动程序详细信息
 
 Trident 提供 `solidfire-san`存储驱动程序来与集群通信。支持的访问模式有：_ReadWriteOnce_ (RWO)、_ReadOnlyMany_ (ROX)、_ReadWriteMany_ (RWX)、_ReadWriteOncePod_ (RWOP)。
@@ -50,6 +51,7 @@ RWO、RWOP
 |===
 
 
+[[before-you-begin]]
 == 开始之前
 
 在创建 Element 后端之前，您需要执行下列操作。
@@ -61,6 +63,7 @@ RWO、RWOP
 
 
 
+[[backend-configuration-options]]
 == 后端配置选项
 
 有关后端配置选项，请参见下表：
@@ -113,6 +116,7 @@ WARNING: 除非正在进行故障排除并需要详细的日志转储，否则�
 
 
 
+[[example-1-backend-configuration-for-solidfire-san-driver-with-three-volume-types]]
 == 示例 1：具有三种卷类型的  `solidfire-san` 驱动程序的后端配置
 
 此示例显示了一个使用 CHAP 身份验证并使用特定 QoS 保证对三种卷类型进行建模的后端文件。然后，您很可能会使用  `IOPS` storage class 参数定义要使用其中每个的存储类。
@@ -148,6 +152,7 @@ Types:
 ----
 
 
+[[example-2-backend-and-storage-class-configuration-for-solidfire-san-driver-with-virtual-pools]]
 == 示例 2：具有虚拟池的  `solidfire-san` 驱动程序的后端和存储类配置
 
 此示例显示了使用虚拟池配置的后端定义文件以及引用它们的 StorageClasses。
@@ -266,6 +271,7 @@ parameters:
 ----
 
 
+[[find-more-information]]
 == 查找更多信息
 
 * link:../trident-concepts/vol-access-groups.html["卷访问组"^]

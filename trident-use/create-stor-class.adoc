@@ -16,6 +16,7 @@ summary: 您可以设计 Kubernetes StorageClass 文件并创建 StorageClass �
 
 
 
+[[configure-a-kubernetes-storageclass-object]]
 == 配置 Kubernetes StorageClass 对象
 
  https://kubernetes.io/docs/concepts/storage/storage-classes/["Kubernetes StorageClass 对象"^] 将 Trident 识别为用于该类的预配程序，并指示 Trident 如何预配卷。例如：
@@ -40,6 +41,7 @@ volumeBindingMode: Immediate
 
 
 
+[[create-a-storage-class]]
 == 创建存储类
 
 创建 StorageClass 对象后，可以创建存储类。<<存储类示例>> 提供了一些可以使用或修改的基本示例。
@@ -96,6 +98,7 @@ basic-csi    csi.trident.netapp.io   15h
 ----
 
 
+[[storage-class-samples]]
 === 存储类示例
 
 Trident 可提供 https://github.com/NetApp/trident/tree/master/trident-installer/sample-input/storage-class-samples["用于特定后端的简单存储类定义"^]。

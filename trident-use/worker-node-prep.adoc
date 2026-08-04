@@ -16,6 +16,7 @@ Kubernetes 集群中的所有工作节点都必须能够装载您为 Pod 配置�
 
 
 
+[[selecting-the-right-tools]]
 == 选择合适的工具
 
 如果要组合使用驱动程序，应为驱动程序安装所有必需的工具。最新版本的 Red Hat Enterprise Linux CoreOS (RHCOS) 默认安装了这些工具。
@@ -44,6 +45,7 @@ link:https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html#pre
 
 
 
+[[node-service-discovery]]
 == 节点服务发现
 
 Trident 尝试自动检测节点是否可以运行 iSCSI 或 NFS 服务。
@@ -67,6 +69,7 @@ tridentctl get node -o wide -n <Trident namespace>
 ----
 
 
+[[nfs-volumes]]
 == NFS 卷
 
 使用操作系统的命令安装 NFS 工具。确保 NFS 服务在启动时启动。
@@ -93,12 +96,14 @@ WARNING: 安装 NFS 工具后重新启动工作节点，以防止将卷附加到
 
 
 
+[[iscsi-volumes]]
 == iSCSI 卷
 
 Trident 可以自动建立 iSCSI 会话、扫描 LUN、发现多路径设备、对其进行格式化并将其挂载到 pod。
 
 
 
+[[iscsi-self-healing-capabilities]]
 === iSCSI 自我修复功能
 
 对于 ONTAP 系统，Trident 每五分钟运行一次 iSCSI 自我修复，以：
@@ -131,6 +136,7 @@ NOTE: 例如，如果 CHAP 机密在存储控制器上循环，并且网络失�
 
 
 
+[[install-the-iscsi-tools]]
 === 安装 iSCSI 工具
 
 使用操作系统命令安装 iSCSI 工具。
@@ -249,6 +255,7 @@ NOTE: 对于 Ubuntu 18.04，您必须在启动  `open-iscsi` 之前使用  `iscs
 ====
 
 
+[[configure-or-disable-iscsi-self-healing]]
 === 配置或禁用 iSCSI 自我修复
 
 您可以配置以下 Trident iSCSI 自我修复设置，以修复过时的会话：
@@ -291,6 +298,7 @@ tridentctl install --iscsi-self-healing-interval=3m0s --iscsi-self-healing-wait-
 ====
 
 
+[[nvmetcp-volumes]]
 == NVMe/TCP 卷
 
 使用操作系统命令安装 NVMe 工具。
@@ -325,6 +333,7 @@ sudo modprobe nvme-tcp
 ====
 
 
+[[verify-installation]]
 === 验证安装
 
 安装后，使用以下命令验证 Kubernetes 集群中的每个节点都有唯一的 NQN：
@@ -338,12 +347,14 @@ WARNING: Trident 会修改该  `ctrl_device_tmo` 值，以确保 NVMe 在出现�
 
 
 
+[[scsi-over-fc-volumes]]
 == 基于 FC 卷的 SCSI
 
 现在，您可以使用光纤通道 (FC) 协议与 Trident 来配置和管理 ONTAP 系统上的存储资源。
 
 
 
+[[prerequisites]]
 === 前提条件
 
 配置 FC 所需的网络和节点设置。
@@ -373,6 +384,7 @@ WARNING: Trident 会修改该  `ctrl_device_tmo` 值，以确保 NVMe 在出现�
 
 
 
+[[install-the-fc-tools]]
 === 安装 FC 工具
 
 使用操作系统的命令安装 FC 工具。
@@ -446,6 +458,7 @@ sudo systemctl status multipath-tools
 ====
 
 
+[[prepare-to-provision-smb-volumes]]
 == 准备配置 SMB 卷
 
 您可以使用  `ontap-nas` 驱动程序配置 SMB 卷。

@@ -16,6 +16,7 @@ Trident 操作员允许您使用 `TridentOrchestrator`规范中的属性自定�
 
 
 
+[[understanding-controller-pods-and-node-pods]]
 == 了解控制器 pod 和节点 pod
 
 Trident 作为单个控制器 pod 和集群中每个工作节点上的节点 pod 运行。节点 pod 必须运行在任何可能要装载 Trident 卷的主机上。
@@ -28,6 +29,7 @@ Kubernetes link:https://kubernetes.io/docs/concepts/scheduling-eviction/assign-p
 
 
 
+[[configuration-options]]
 == 配置选项
 
 
@@ -263,6 +265,7 @@ NOTE: 有关格式化 pod 参数的更多信息，请参阅 link:https://kuberne
 
 
 
+[[sample-configurations]]
 == 示例配置
 
 您可以在定义<<配置选项>>时使用 `TridentOrchestrator`中的属性来自定义您的安装。

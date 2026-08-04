@@ -21,6 +21,7 @@ Trident 可以在同一主机上并发运行多个实例。这允许同时连接
 
 
 
+[[docker-managed-plugin-method-version-1-1317-03-and-later]]
 == Docker 托管插件方法（版本 1.13/17.03 及更高版本）
 
 .开始之前
@@ -121,6 +122,7 @@ docker volume rm firstVolume
 
 
 
+[[traditional-method-version-1-12-or-earlier]]
 == 传统方法（1.12 版或更早版本）
 
 .开始之前
@@ -231,6 +233,7 @@ docker volume rm trident_2
 
 
 
+[[start-trident-at-system-startup]]
 == 在系统启动时启动 Trident
 
 可以在 Git 存储库中的 `contrib/trident.service.example`找到基于 systemd 的系统的示例单元文件。要将文件与 RHEL 一起使用，请执行以下操作：

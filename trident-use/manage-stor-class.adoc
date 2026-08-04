@@ -16,6 +16,7 @@ summary: 您可以查看现有存储类、设置默认存储类、标识存储�
 
 
 
+[[view-the-existing-storage-classes]]
 == 查看现有存储类
 
 * 要查看现有的 Kubernetes 存储类，请运行以下命令：
@@ -48,6 +49,7 @@ tridentctl get storageclass <storage-class> -o json
 ----
 
 
+[[set-a-default-storage-class]]
 == 设置默认存储类
 
 Kubernetes 1.6 增加了设置默认存储类的功能。如果用户未在 Persistent Volume Claim (PVC) 中指定存储类，则此存储类将用于配置 Persistent Volume。
@@ -74,6 +76,7 @@ NOTE: 群集中一次只能有一个默认存储类。从技术上讲，Kubernet
 
 
 
+[[identify-the-backend-for-a-storage-class]]
 == 标识存储类的后端
 
 这是一个示例，说明您可以使用  `tridentctl` 为 Trident 后端对象输出的 JSON 来回答的问题类型。这使用了  `jq` 实用程序，您可能需要先安装它。
@@ -84,6 +87,7 @@ tridentctl get storageclass -o json | jq  '[.items[] | {storageClass: .Config.na
 ----
 
 
+[[delete-a-storage-class]]
 == 删除存储类
 
 要从 Kubernetes 中删除存储类，请运行以下命令：

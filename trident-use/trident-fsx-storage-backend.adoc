@@ -13,17 +13,19 @@ summary: '使用 Trident 和 Amazon FSx for NetApp ONTAP，您可以确保在 Am
 
 
 
+[[overview]]
 == 概述
 
 在使用 Trident 配置卷之前，您需要通过创建 Trident 后端配置 (TBC) 将存储后端与 Trident 集成。TBC 定义了 Trident 如何连接到存储后端，并为 Trident 管理存储资源提供了必要的信息。
 
 
 
+[[create-a-trident-backend-configuration-tbc-for-fsx-for-ontap]]
 == 为 FSx for ONTAP 创建 Trident 后端配置 (TBC)
 
 有两种方法可以将 Trident 后端配置为使用 FSx for ONTAP 文件系统：* 创建一个利用自动后端功能的 StorageClass。* 分别创建后端和 StorageClass。
 
-本节中的步骤介绍了如何单独创建后端。有关如何使用 Automatic Backend 功能的信息，请参见 link:trident-fsx-storageclass-pvc.html#configure-a-kubernetes-storageclass-object-with-automatic-backend-configuration-support-for-fsx-for-ontap["配置 StorageClass 和 PVC"] 部分以了解更多信息。
+本节中的步骤介绍了如何单独创建后端。有关如何使用 Automatic Backend 功能的信息，请参见 link:trident-fsx-storageclass-pvc.html["配置 StorageClass 和 PVC"] 部分以了解更多信息。
 
 要创建存储后端，需要以 JSON 或 YAML 格式创建配置文件。文件需要指定所需的存储类型（NAS 或 SAN）、文件系统和获取该文件的 SVM 以及使用该文件进行身份验证的方式。以下示例演示如何定义基于 NAS 的存储并使用 AWS 密钥将凭据存储到要使用的 SVM：
 
@@ -110,6 +112,7 @@ backend-tbc-ontap-nas        tbc-ontap-nas        933e0071-66ce-4324-b9ff-f96d91
 
 
 
+[[fsx-for-ontap-driver-details]]
 == FSx for ONTAP 驱动程序详细信息
 
 您可以使用以下驱动程序将 Trident 与 Amazon FSx for NetApp ONTAP 集成：
@@ -142,6 +145,7 @@ backend-fsx-ontap-nas   backend-fsx-ontap-nas   7a551921-997c-4c37-a1d1-f2f4c87f
 ----
 
 
+[[backend-advanced-configuration-and-examples]]
 == 后端高级配置和示例
 
 有关后端配置选项，请参见下表：
@@ -234,6 +238,7 @@ backend-fsx-ontap-nas   backend-fsx-ontap-nas   7a551921-997c-4c37-a1d1-f2f4c87f
 |===
 
 
+[[backend-configuration-options-for-provisioning-volumes]]
 == 用于配置卷的后端配置选项
 
 您可以使用配置的  `defaults` 部分中的这些选项来控制默认配置。有关示例，请参阅下面的配置示例。
@@ -280,6 +285,7 @@ backend-fsx-ontap-nas   backend-fsx-ontap-nas   7a551921-997c-4c37-a1d1-f2f4c87f
 |===
 
 
+[[provision-smb-volumes]]
 == 配置 SMB 卷
 
-您可以使用  `ontap-nas` 驱动程序配置 SMB 卷。在完成link:trident-fsx-storage-backend.html#ontap-san-and-nas-driver-integration["ONTAP SAN 和 NAS 驱动程序集成"]之前，请完成以下步骤：link:worker-node-prep.html#prepare-to-provision-smb-volumes.html["准备配置 SMB 卷"]。
+您可以使用  `ontap-nas` 驱动程序配置 SMB 卷。在完成link:trident-fsx-storage-backend.html#fsx-for-ontap-driver-details["ONTAP SAN 和 NAS 驱动程序集成"]之前，请完成以下步骤：link:worker-node-prep.html#prepare-to-provision-smb-volumes["准备配置 SMB 卷"]。

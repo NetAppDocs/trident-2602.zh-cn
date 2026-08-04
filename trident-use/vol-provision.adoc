@@ -16,6 +16,7 @@ summary: '创建一个 PersistentVolume (PV) 和一个 PersistentVolumeClaim (PV
 
 
 
+[[overview]]
 == 概述
 
  https://kubernetes.io/docs/concepts/storage/persistent-volumes["_PersistentVolumeClaim_"^]（PVC）是访问集群上 PersistentVolume 的请求。
@@ -26,6 +27,7 @@ PVC 可以配置为请求特定大小或访问模式的存储。使用关联的 
 
 
 
+[[create-the-pvc]]
 == 创建 PVC
 
 .步骤
@@ -74,6 +76,7 @@ kubectl delete pod pv-pod
 
 
 
+[[sample-manifests]]
 === 示例清单
 
 .PersistentVolumeClaim 示例清单
